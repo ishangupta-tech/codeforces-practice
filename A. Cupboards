@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int leftOpen = 0, leftClose = 0;
+    int rightOpen = 0, rightClose = 0;
+
+    for (int i = 0; i < n; i++) {
+        int l, r;
+        cin >> l >> r;
+
+        if (l == 1)
+            leftOpen++;
+        else
+            leftClose++;
+
+        if (r == 1)
+            rightOpen++;
+        else
+            rightClose++;
+    }
+
+    cout << min(leftOpen, leftClose) + min(rightOpen, rightClose);
+
+    return 0;
+}
