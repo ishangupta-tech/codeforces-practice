@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long n, m, a, cur = 1, ans = 0;
+    cin >> n >> m;
+
+    while (m--) {
+        cin >> a;
+        if (a >= cur)
+            ans += a - cur;
+        else
+            ans += n - cur + a;
+        cur = a;
+    }
+
+    cout << ans;
+    return 0;
+}
