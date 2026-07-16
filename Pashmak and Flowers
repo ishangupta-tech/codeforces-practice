@@ -1,0 +1,34 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    long long a[200005];
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    sort(a, a + n);
+
+    long long mn = a[0];
+    long long mx = a[n - 1];
+
+    if (mn == mx) {
+        cout << 0 << " " << (1LL * n * (n - 1)) / 2;
+        return 0;
+    }
+
+    long long cntMin = 0, cntMax = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] == mn) cntMin++;
+        if (a[i] == mx) cntMax++;
+    }
+
+    cout << mx - mn << " " << cntMin * cntMax;
+
+    return 0;
+}
