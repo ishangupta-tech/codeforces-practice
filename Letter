@@ -3,35 +3,24 @@
 using namespace std;
 
 int main() {
-    string s, t, all = "";
-    getline(cin, s);
-    getline(cin, t);
+    string s1, s2, s3;
+    getline(cin, s1);
+    getline(cin, s2);
+    getline(cin, s3);
 
-    all = s + t;
+    int cnt[256] = {0};
 
-    int cnt1[256] = {0};
-    int cnt2[256] = {0};
-
-    string name, pile;
-    getline(cin, name);
-    getline(cin, pile);
-
-    for (char c : name)
-        if (c != ' ')
-            cnt1[c]++;
-
-    for (char c : pile)
-        if (c != ' ')
-            cnt2[c]++;
+    for (char c : s1) cnt[c]++;
+    for (char c : s2) cnt[c]++;
+    for (char c : s3) cnt[c]--;
 
     for (int i = 0; i < 256; i++) {
-        if (cnt1[i] != cnt2[i]) {
+        if (cnt[i] != 0) {
             cout << "NO";
             return 0;
         }
     }
 
     cout << "YES";
-
     return 0;
 }
