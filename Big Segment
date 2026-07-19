@@ -5,11 +5,22 @@ int main() {
     int n;
     cin >> n;
 
-    int num = 2;
+    int l[100005], r[100005];
+    int minL = 1000000000, maxR = -1;
+
     for (int i = 0; i < n; i++) {
-        cout << num << " ";
-        num++;
+        cin >> l[i] >> r[i];
+        if (l[i] < minL) minL = l[i];
+        if (r[i] > maxR) maxR = r[i];
     }
 
+    for (int i = 0; i < n; i++) {
+        if (l[i] == minL && r[i] == maxR) {
+            cout << i + 1;
+            return 0;
+        }
+    }
+
+    cout << -1;
     return 0;
 }
