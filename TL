@@ -1,0 +1,29 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    int a[105], b[105];
+
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    for (int i = 0; i < m; i++)
+        cin >> b[i];
+
+    int mnB = *min_element(b, b + m);
+    int mxA = *max_element(a, a + n);
+    int mnA = *min_element(a, a + n);
+
+    int ans = max(2 * mnA, mxA);
+
+    if (ans < mnB)
+        cout << ans;
+    else
+        cout << -1;
+
+    return 0;
+}
