@@ -1,0 +1,24 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    int n, x;
+    cin >> n;
+
+    map<int, int> mp;
+    int mx = 0;
+
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        mp[x]++;
+        mx = max(mx, mp[x]);
+    }
+
+    if (mx <= (n + 1) / 2)
+        cout << "YES";
+    else
+        cout << "NO";
+
+    return 0;
+}
