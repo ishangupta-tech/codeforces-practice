@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    string ans = "";
+
+    while (n > 0 && m > 0) {
+        if (n >= m) {
+            ans += 'B';
+            n--;
+            if (m > 0) {
+                ans += 'G';
+                m--;
+            }
+        } else {
+            ans += 'G';
+            m--;
+            if (n > 0) {
+                ans += 'B';
+                n--;
+            }
+        }
+    }
+
+    while (n--) ans += 'B';
+    while (m--) ans += 'G';
+
+    cout << ans;
+
+    return 0;
+}
