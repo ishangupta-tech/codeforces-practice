@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int sumA = 0, sumB = 0;
+    bool canSwap = false;
+
+    for (int i = 0; i < n; i++) {
+        int a, b;
+        cin >> a >> b;
+
+        sumA += a;
+        sumB += b;
+
+        if ((a + b) % 2 == 1) {
+            canSwap = true;
+        }
+    }
+
+    if (sumA % 2 == 0 && sumB % 2 == 0) {
+        cout << 0;
+    } else if (sumA % 2 == 1 && sumB % 2 == 1 && canSwap) {
+        cout << 1;
+    } else {
+        cout << -1;
+    }
+
+    return 0;
+}
