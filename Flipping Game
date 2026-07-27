@@ -1,0 +1,35 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int a[105];
+    int ones = 0;
+
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+        if (a[i] == 1)
+            ones++;
+    }
+
+    int mx = -1000000;
+
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = i; j < n; j++) {
+            if (a[j] == 0)
+                sum++;
+            else
+                sum--;
+
+            mx = max(mx, sum);
+        }
+    }
+
+    cout << ones + mx;
+
+    return 0;
+}
