@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n, m, d;
+    cin >> n >> m >> d;
+
+    vector<int> a(n * m);
+
+    for (int i = 0; i < n * m; i++) {
+        cin >> a[i];
+    }
+
+    for (int i = 1; i < n * m; i++) {
+        if ((a[i] - a[0]) % d != 0) {
+            cout << -1;
+            return 0;
+        }
+    }
+
+    sort(a.begin(), a.end());
+    int median = a[(n * m) / 2];
+
+    long long ans = 0;
+    for (int x : a) {
+        ans += abs(x - median) / d;
+    }
+
+    cout << ans;
+
+    return 0;
+}
