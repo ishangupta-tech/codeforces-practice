@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int a[105], b[105];
+
+    for (int i = 0; i < n; i++) {
+        cin >> a[i] >> b[i];
+    }
+
+    int ans = 0;
+
+    for (int i = 0; i < n; i++) {
+        bool opened = false;
+
+        for (int j = 0; j < n; j++) {
+            if (i != j && a[i] == b[j]) {
+                opened = true;
+                break;
+            }
+        }
+
+        if (!opened) {
+            ans++;
+        }
+    }
+
+    cout << ans;
+
+    return 0;
+}
